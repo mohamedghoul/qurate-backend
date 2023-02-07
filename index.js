@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import authRoutes from './routes/auth.js';
 import userRoutes from './routes/users.js';
 import instructorRoutes from './routes/instructors.js';
+import courseRoutes from './routes/courses.js';
 
 // CONFIGURATION
 
@@ -23,6 +24,7 @@ app.use(morgan('common'));
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/instructors', instructorRoutes);
+app.use('/api/courses', courseRoutes);
 
 // DATABASE
 
