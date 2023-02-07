@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import authRoutes from './routes/auth.js';
+import userRoutes from './routes/users.js';
 
 // CONFIGURATION
 
@@ -19,7 +20,7 @@ app.use(morgan('common'));
 // ROUTES
 
 app.use('/api/auth', authRoutes);
-
+app.use('/api/users', userRoutes);
 
 // DATABASE
 
