@@ -4,8 +4,7 @@ const courseSchema = new mongoose.Schema({
     code: {
         type: String,
         required: true,
-        unique: true,
-        match: [/^(CMPS|CMPE|ELEC)\d{3}$/, "Please enter a valid course code"],
+        match: [/^(CMPS|CMPE)\d{3}$/, "Please enter a valid course code"],
     },
     name: {
         type: String,
@@ -16,12 +15,7 @@ const courseSchema = new mongoose.Schema({
     type: {
         type: String,
         required: true,
-        enum: ["Lecture", "Lab", "Tutorial"],
-    },
-    offered: {
-        type: String,
-        required: true,
-        enum: ["Fall", "Spring", "Summer"],
+        enum: ["Lecture", "Lab", "Senior Project", "Internship"],
     }
 });
 
