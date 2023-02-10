@@ -10,37 +10,29 @@ const instructorSchema = new mongoose.Schema({
             "Please enter a valid QU email address",
         ],
     },
-    firstName: {
+    name: {
         type: String,
         required: true,
-        min: 2,
-        max: 50,
-    },
-    lastName: {
-        type: String,
-        required: true,
-        min: 2,
-        max: 50,
+        min: 3,
+        max: 255,
     },
     title: {
         type: String,
         required: true,
-        enum: ["Professor", "Assistant Professor", "Associate Professor", "Lecturer", "Teaching Assistant"],
     },
-    department: {
+    office: {
         type: String,
         required: true,
-        enum: ["Computer Science", "Computer Engineering"],
     },
     phone: {
         type: String,
         required: true,
         match: [
-            /^(\+974)?(3|5|6|7|9)\d{7}$/,
-            "Please enter a valid Qatari phone number",
+            /^\(\+974\) \d{4} \d{4}$/,
+            "Please enter a valid phone number",
         ],
     },
-    office: {
+    image: {
         type: String,
         required: true,
     },
