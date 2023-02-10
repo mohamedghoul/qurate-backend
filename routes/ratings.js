@@ -21,3 +21,5 @@ router.patch("/:id", verifyToken, updateRating);
 
 // Delete a rating
 router.delete("/:id", verifyToken, deleteRating);
+
+export default router;

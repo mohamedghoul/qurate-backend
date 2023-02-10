@@ -8,6 +8,7 @@ import authRoutes from './routes/auth.js';
 import userRoutes from './routes/users.js';
 import instructorRoutes from './routes/instructors.js';
 import courseRoutes from './routes/courses.js';
+import ratingRoutes from './routes/ratings.js';
 
 // CONFIGURATION
 
@@ -25,6 +26,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/instructors', instructorRoutes);
 app.use('/api/courses', courseRoutes);
+app.use('/api/ratings', ratingRoutes);
 
 // DATABASE
 
