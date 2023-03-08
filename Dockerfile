@@ -4,7 +4,7 @@ FROM node:16.19.0-bullseye-slim
 WORKDIR /app
 
 # Install app dependencies
-COPY package.json ./
+COPY package*.json ./
 RUN npm ci \ npm cache clean --force
 
 # Bundle app source
