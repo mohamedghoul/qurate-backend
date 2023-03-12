@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
+import Token from '../models/Token.js';
 
 // Register a user
 export async function register(req, res) {
@@ -38,10 +39,24 @@ export async function login(req, res) {
         }
 
         const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: '1d' });
+        const newToken = await Token.create({
+            token,
+            user: user._id,
+        });
         user.password = undefined;
         res.status(200).json({ token, user });
     }
     catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
+
+// Log a user out
+export async function logout(req, res) {
+    try {
+        await Token.deleteOne({ token: req.headers.authorization });
+        res.status(200).json({ message: 'Logged out' });
+    } catch (err) {
         res.status(500).json({ error: err.message });
     }
 }
